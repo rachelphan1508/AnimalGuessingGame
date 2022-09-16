@@ -10,7 +10,15 @@
     "string_view": "cpp",
     "istream": "cpp",
     "fstream": "cpp",
-    "cstdlib": "cpp"
+    "cstdlib": "cpp",
+    "__bit_reference": "cpp",
+    "__hash_table": "cpp",
+    "__string": "cpp",
+    "__tree": "cpp",
+    "algorithm": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "unordered_map": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }

@@ -2,7 +2,7 @@ Does it swim underwater?
 Does your animal appear in Jaws?
 Is this a shark?
 Does your animal have 8 legs?
-Is it a octopus?
+Is it an octopus?
 Is it warm blooded?
 Does its size vary from 11ft to 115ft?
 Is it a whale?
@@ -16,6 +16,8 @@ Can it fly?
 Is it a mammal?
 Is it a bat?
 Does it eat meat?
-Is it a eagle?
+Is it an eagle?
 Is it a pigeon?
+Can it carry 50 times its own bodyweight?
+Is it an ant?
 Is this a horse?

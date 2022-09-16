@@ -26,6 +26,7 @@ public:
 };
 #pragma endregion Node
 
+#pragma region TreeFunctions
 void PrintQuestion(Node *node)
 {
     cout << node->question << endl;
@@ -46,6 +47,7 @@ void AddQuestionToNode(Node *&cur, string question, string yesAnswer, string noA
     node->noAnswer = new Node(noAnswer);
     cur = node;
 }
+#pragma endregion TreeFunctions
 
 #pragma region TreeTraversal
 /// @brief get the Inorder Traversal of the tree
@@ -207,15 +209,17 @@ int main()
                 cout << "Yayyyy. I got it right!" << endl;
                 gameFinished = true;
             }
+            // if user answer No and there are still more questions, continue moving to the Yes path
             else if (userAnswer == "y")
             {
                 cur = MoveToYes(cur);
             }
+            // if user answer No and there are still more questions, continue moving to the No path
             else if (userAnswer == "n" && cur->noAnswer)
             {
                 cur = MoveToNo(cur);
             }
-            // if the guess is wrong
+            // Else, if the guess is wrong
             else
             {
                 // get the animal that was guessed
@@ -223,7 +227,7 @@ int main()
                 string guessedAnimal = cur->question.substr(lastSpace + 1, cur->question.size() - lastSpace - 2);
 
                 // get the animal that user were thinking of
-                cout << "oh. I guessed it wrong! Which animal were you thinking of?" << endl;
+                cout << "Ohhhh. I guessed it wrong! Which animal were you thinking of?" << endl;
                 string userAnimal;
                 cin >> userAnimal;
 
@@ -234,14 +238,17 @@ int main()
                 getline(cin, userQuestion);
 
                 // ask user which answer (y/n) for the question they gave
-                cout << "Should a " << userAnimal << " be a y/n to that question?" << endl;
+
+                cout << "Should " << userAnimal << " be a y/n to that question?" << endl;
                 string userAnimalAnswer;
                 cin >> userAnimalAnswer;
 
                 string curQuestion = cur->question;
 
                 // make the animal that user added become a question.
-                string userAnimalQuestion = "Is it a " + userAnimal + "?";
+                string str = "ueoai";
+                string article = str.find(userAnimal[0]) != std::string::npos ? "an" : "a";
+                string userAnimalQuestion = "Is it " + article + " " + userAnimal + "?";
 
                 // replace current question with that user question.
                 cur->question = userQuestion;

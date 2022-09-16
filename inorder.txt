@@ -1,6 +1,6 @@
 Is this a shark?
 Does your animal appear in Jaws?
-Is it a octopus?
+Is it an octopus?
 Does your animal have 8 legs?
 Is it a whale?
 Does its size vary from 11ft to 115ft?
@@ -14,8 +14,10 @@ Is it a Lion?
 Is it also known as the King of the Jungle?
 Is it a bat?
 Is it a mammal?
-Is it a eagle?
+Is it an eagle?
 Does it eat meat?
 Is it a pigeon?
 Can it fly?
+Is it an ant?
+Can it carry 50 times its own bodyweight?
 Is this a horse?
