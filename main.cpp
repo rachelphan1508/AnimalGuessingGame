@@ -2,6 +2,8 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <cstdlib>
+#include <unistd.h>
 
 using namespace std;
 
@@ -84,6 +86,8 @@ void GetPreOrderList(Node *node, vector<string> &preorderList)
 #pragma endregion TreeTraversal
 
 #pragma region BuildTree
+
+// Build the binary tree from inorder and preorder traversal
 Node *
 BuildTreeHelper(vector<string> preOrderList, vector<string> inOrderList, int startPre, int startIn, int endIn)
 {
@@ -118,6 +122,7 @@ Node *BuildTree(vector<string> preOrderList, vector<string> inOrderList)
 void WriteVectorToFile(vector<string> v, string filename)
 {
     ofstream myfile(filename);
+    myfile.clear();
     for (const auto &e : v)
     {
         myfile << e << '\n';
@@ -187,13 +192,17 @@ int main()
             AddQuestionToNode(root, "Does it swim underwater?", "Is this a shark?", "Is this a horse?");
         }
         Node *cur = root;
+
+        // pause for 3 seconds before starting -- let user think about the animal
+        sleep(3);
+
         while (!gameFinished)
         {
             PrintQuestion(cur);
             cin >> userAnswer;
 
             // // if user answer Yes and we are at the leaf, game is over and the guess was right
-            if (userAnswer == "y" && cur->yesAnswer == NULL)
+            if (userAnswer == "y" && !cur->yesAnswer)
             {
                 cout << "Yayyyy. I got it right!" << endl;
                 gameFinished = true;
@@ -202,8 +211,12 @@ int main()
             {
                 cur = MoveToYes(cur);
             }
+            else if (userAnswer == "n" && cur->noAnswer)
+            {
+                cur = MoveToNo(cur);
+            }
             // if the guess is wrong
-            else if (userAnswer == "n" && !cur->noAnswer)
+            else
             {
                 // get the animal that was guessed
                 int lastSpace = cur->question.find_last_of(' ');
@@ -215,7 +228,7 @@ int main()
                 cin >> userAnimal;
 
                 // ask user to add a question
-                cout << "Please give me a question to differiate " << userAnimal << " and " << guessedAnimal << "." << endl;
+                cout << "Please give me a question to differiate " << userAnimal << " with " << guessedAnimal << "." << endl;
                 string userQuestion;
                 cin.ignore();
                 getline(cin, userQuestion);
@@ -236,7 +249,6 @@ int main()
                 if (userAnimalAnswer == "y")
                 {
                     // make cur->yesAnswer the userAnimal
-
                     cur->yesAnswer = new Node(userAnimalQuestion);
                     cur->noAnswer = new Node(curQuestion);
                 }
@@ -248,19 +260,11 @@ int main()
                 }
                 cout << "Thank you! Test how I learnt from you by playing again :D " << endl;
 
-                // write the tree data to file
-                WriteDataToFile(root);
-
                 gameFinished = true;
-            }
-            else
-            {
-                cur = MoveToNo(cur);
             }
         }
 
-        // after the game, data from this game will be saved in files. So previous data will lose.
-
+        // after the game, data from this game will be saved in files. So previous data will be replaced.
         WriteDataToFile(root);
 
         cout << "Do you want to play again? (y/n)" << endl;

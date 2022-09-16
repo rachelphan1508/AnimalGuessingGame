@@ -2,10 +2,20 @@ Does it swim underwater?
 Does your animal appear in Jaws?
 Is this a shark?
 Does your animal have 8 legs?
-Is it a octopus
+Is it a octopus?
+Is it warm blooded?
+Does its size vary from 11ft to 115ft?
 Is it a whale?
+Is it a dolphin?
+Is it a crab?
 Does your animal have a long neck?
 Is it a Giraffe?
 Is it also known as the King of the Jungle?
 Is it a Lion?
+Can it fly?
+Is it a mammal?
+Is it a bat?
+Does it eat meat?
+Is it a eagle?
+Is it a pigeon?
 Is this a horse?

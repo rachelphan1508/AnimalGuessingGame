@@ -9,7 +9,8 @@
     "string": "cpp",
     "string_view": "cpp",
     "istream": "cpp",
-    "fstream": "cpp"
+    "fstream": "cpp",
+    "cstdlib": "cpp"
   },
   "C_Cpp.errorSquiggles": "Disabled"
 }
