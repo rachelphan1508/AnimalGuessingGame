@@ -1,0 +1,4 @@
+Sample questions to train the bot:
+
+1. dog
+Differentiate dog with horse: 
