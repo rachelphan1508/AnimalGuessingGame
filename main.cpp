@@ -209,7 +209,7 @@ int main()
                 cout << "Yayyyy. I got it right!" << endl;
                 gameFinished = true;
             }
-            // if user answer No and there are still more questions, continue moving to the Yes path
+            // if user answer Yes and there are still more questions, continue moving to the Yes path
             else if (userAnswer == "y")
             {
                 cur = MoveToYes(cur);
